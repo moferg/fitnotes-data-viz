@@ -34,7 +34,6 @@ with open('FitNotes_Export_2020_09_29.csv') as csv_file:
             print(f'Column names: {", ".join(row)}')
             line_count += 1
         else:
-            print(f'\tOn {row[0]}, you worked out your {row[2]}.')
-            print(f'\tYou performed {row[1]} for {row[4]} reps at {row[3]} lbs.')
+            print(f'\tOn {row[0]}, you performed {row[1]} for {row[4]} reps at {row[3]} lbs.')
             line_count += 1
     print(f'Processed {line_count} lines.')
