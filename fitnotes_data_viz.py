@@ -16,8 +16,15 @@
 # Imports
 
 import csv
-import matplotlib as plt
+import matplotlib.pyplot as plt
+import numpy as np
 import time
+
+# Functions
+
+def unique_values(list1): 
+    x = np.array(list1) 
+    return np.unique(x) 
 
 print('Welcome to the FitNotes Data Visualizer!')
 time.sleep(1)
@@ -26,14 +33,30 @@ time.sleep(2)
 print('and output graphs and visualizations, guiding you to a more data driven approach to working out.')
 time.sleep(2)
 
+
+dates = []
+volumes = []
+
 with open('FitNotes_Export_2020_09_29.csv') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     line_count = 0
     for row in csv_reader:
         if line_count == 0:
-            print(f'Column names: {", ".join(row)}')
+            # print(f'Column names: {", ".join(row)}')
             line_count += 1
         else:
-            print(f'\tOn {row[0]}, you performed {row[1]} for {row[4]} reps at {row[3]} lbs.')
+            # print(f'\tOn {row[0]}, you performed {row[1]} for {row[4]} reps at {row[3]} lbs.')
+            dates.append(row[0])
+            volumes.append(float(row[4]) * float(row[3]))
             line_count += 1
-    print(f'Processed {line_count} lines.')
+    # print(f'Processed {line_count} lines.')
+    # print(dates)
+    # print(len(dates))
+    # print(volumes)
+    # print(len(volumes))
+
+    unique_dates = unique_values(dates)
+    print(unique_dates)
+    print(len(unique_dates))
+
+    fig, ax = plt.subplots()
