@@ -24,7 +24,7 @@ import time
 
 def unique_values(list1): 
     x = np.array(list1) 
-    return np.unique(x) 
+    return list(np.unique(x))
 
 print('Welcome to the FitNotes Data Visualizer!')
 time.sleep(1)
@@ -32,7 +32,6 @@ print('This application will take in a CSV file from the FitNotes workout app,')
 time.sleep(2)
 print('and output graphs and visualizations, guiding you to a more data driven approach to working out.')
 time.sleep(2)
-
 
 dates = []
 volumes = []
@@ -58,5 +57,13 @@ with open('FitNotes_Export_2020_09_29.csv') as csv_file:
     unique_dates = unique_values(dates)
     print(unique_dates)
     print(len(unique_dates))
+
+    sets_on_date = []
+    for date in unique_dates:
+        sets_on_date.append(dates.count(date))
+    print(sets_on_date)
+    print(len(sets_on_date))
+
+
 
     fig, ax = plt.subplots()
