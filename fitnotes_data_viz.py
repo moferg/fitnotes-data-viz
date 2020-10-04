@@ -36,7 +36,7 @@ time.sleep(2)
 dates = []
 volumes = []
 
-with open('FitNotes_Export_2020_09_29.csv') as csv_file:
+with open('FitNotes_Export_2020_10_04.csv') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     line_count = 0
     for row in csv_reader:
@@ -63,7 +63,5 @@ with open('FitNotes_Export_2020_09_29.csv') as csv_file:
         sets_on_date.append(dates.count(date))
     print(sets_on_date)
     print(len(sets_on_date))
-
-
 
     fig, ax = plt.subplots()
