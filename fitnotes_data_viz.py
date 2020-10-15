@@ -33,9 +33,6 @@ time.sleep(2)
 print('and output graphs and visualizations, guiding you to a more data driven approach to working out.')
 time.sleep(2)
 
-dates = []
-volumes = []
-
 with open('FitNotes_Export_2020_10_04.csv') as csv_file:
     csv_reader = csv.DictReader(csv_file, delimiter=',')
     line_count = 0
@@ -44,15 +41,8 @@ with open('FitNotes_Export_2020_10_04.csv') as csv_file:
             # print(f'Column names: {", ".join(row)}')
             line_count += 1
         else:
-            # print(f'\tOn {row[0]}, you performed {row[1]} for {row[4]} reps at {row[3]} lbs.')
-            # dates.append(row[0])
-            # volumes.append(float(row[4]) * float(row[3]))
             print(row)
             line_count += 1
-    # print(f'Processed {line_count} lines.')
-    # print(dates)
-    # print(len(dates))
-    # print(volumes)
-    # print(len(volumes))
+    print(f'Processed {line_count} lines.')
 
     fig, ax = plt.subplots()
