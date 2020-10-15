@@ -37,7 +37,7 @@ dates = []
 volumes = []
 
 with open('FitNotes_Export_2020_10_04.csv') as csv_file:
-    csv_reader = csv.reader(csv_file, delimiter=',')
+    csv_reader = csv.DictReader(csv_file, delimiter=',')
     line_count = 0
     for row in csv_reader:
         if line_count == 0:
@@ -45,23 +45,14 @@ with open('FitNotes_Export_2020_10_04.csv') as csv_file:
             line_count += 1
         else:
             # print(f'\tOn {row[0]}, you performed {row[1]} for {row[4]} reps at {row[3]} lbs.')
-            dates.append(row[0])
-            volumes.append(float(row[4]) * float(row[3]))
+            # dates.append(row[0])
+            # volumes.append(float(row[4]) * float(row[3]))
+            print(row)
             line_count += 1
     # print(f'Processed {line_count} lines.')
     # print(dates)
     # print(len(dates))
     # print(volumes)
     # print(len(volumes))
-
-    unique_dates = unique_values(dates)
-    print(unique_dates)
-    print(len(unique_dates))
-
-    sets_on_date = []
-    for date in unique_dates:
-        sets_on_date.append(dates.count(date))
-    print(sets_on_date)
-    print(len(sets_on_date))
 
     fig, ax = plt.subplots()
