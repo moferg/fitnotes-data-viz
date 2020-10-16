@@ -64,6 +64,18 @@ with open('FitNotes_Export_2020_10_04.csv') as csv_file:
     print(sets_on_date)
     print(len(sets_on_date))
 
-    #TODO - set up a dict with header row as keywords and each row as part of a list of values
+    #TODO - set up a list with len() of 18 for volumes of each unique date
+
+    volumes_for_workout = []
+    for sets in sets_on_date:
+        volumes_for_workout.append(volumes[0:sets])
+    print(volumes_for_workout)
+    print(len(volumes_for_workout))
+
+    volumes_on_unique_dates = []
+    for volume in volumes_for_workout:
+        volumes_on_unique_dates.append(sum(volume))
+    print(volumes_on_unique_dates)
+    print(len(volumes_on_unique_dates))
 
     fig, ax = plt.subplots()
