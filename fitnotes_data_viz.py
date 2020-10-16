@@ -79,3 +79,5 @@ with open('FitNotes_Export_2020_10_04.csv') as csv_file:
     print(len(volumes_on_unique_dates))
 
     fig, ax = plt.subplots()
+    ax.bar(unique_dates, volumes_on_unique_dates)
+    plt.show()
