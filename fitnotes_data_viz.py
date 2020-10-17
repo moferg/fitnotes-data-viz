@@ -5,8 +5,8 @@
 # Implement a log to store errors in another file
 # Buid a conversion tool (lb to kg and vice-versa)
 # Read data from an external CSV file (DONE)
-# Visualize data in a graph
-# Use matplotlib 
+# Visualize data in a graph (DONE)
+# Use matplotlib (DONE) 
 
 # Potential features to include:
 # Create a dict or list and use it in program (DONE)
@@ -55,29 +55,29 @@ with open('FitNotes_Export_2020_10_04.csv') as csv_file:
     # print(len(volumes))
 
     unique_dates = unique_values(dates)
-    print(unique_dates)
-    print(len(unique_dates))
+    # print(unique_dates)
+    # print(len(unique_dates))
 
     sets_on_date = []
     for date in unique_dates:
         sets_on_date.append(dates.count(date))
-    print(sets_on_date)
-    print(len(sets_on_date))
-
-    #TODO - set up a list with len() of 18 for volumes of each unique date
+    # print(sets_on_date)
+    # print(len(sets_on_date))
 
     volumes_for_workout = []
     for sets in sets_on_date:
         volumes_for_workout.append(volumes[0:sets])
-    print(volumes_for_workout)
-    print(len(volumes_for_workout))
+    # print(volumes_for_workout)
+    # print(len(volumes_for_workout))
 
     volumes_on_unique_dates = []
     for volume in volumes_for_workout:
         volumes_on_unique_dates.append(sum(volume))
-    print(volumes_on_unique_dates)
-    print(len(volumes_on_unique_dates))
+    # print(volumes_on_unique_dates)
+    # print(len(volumes_on_unique_dates))
 
     fig, ax = plt.subplots()
     ax.bar(unique_dates, volumes_on_unique_dates)
+    for i in range(0, len(unique_dates)):
+        ax.annotate(str(volumes_on_unique_dates[i]), xy = (i - .25, volumes_on_unique_dates[i]))
     plt.show()
