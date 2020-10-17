@@ -80,4 +80,7 @@ with open('FitNotes_Export_2020_10_04.csv') as csv_file:
     ax.bar(unique_dates, volumes_on_unique_dates)
     for i in range(0, len(unique_dates)):
         ax.annotate(str(volumes_on_unique_dates[i]), xy = (i - .25, volumes_on_unique_dates[i]))
+    ax.set_xlabel('Workout Dates')
+    ax.set_ylabel('Workout Volumes')
+    ax.set_title('Workout Volumes Over Time')
     plt.show()
