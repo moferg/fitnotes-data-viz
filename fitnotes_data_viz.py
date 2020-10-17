@@ -78,6 +78,8 @@ with open('FitNotes_Export_2020_10_04.csv') as csv_file:
 
     fig, ax = plt.subplots()
     ax.bar(unique_dates, volumes_on_unique_dates)
+    ax.scatter(unique_dates, volumes_on_unique_dates, color='r', linewidth=4)
+    ax.plot(unique_dates, volumes_on_unique_dates, color='r', linewidth=2)
     for i in range(0, len(unique_dates)):
         ax.annotate(str(volumes_on_unique_dates[i]), xy = (i - .25, volumes_on_unique_dates[i]))
     ax.set_xlabel('Workout Dates')
