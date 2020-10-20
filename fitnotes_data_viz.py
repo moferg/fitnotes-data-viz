@@ -64,28 +64,22 @@ with open('FitNotes_Export_2020_10_04.csv') as csv_file:
     # print(len(unique_dates))
 
     # Create a list of the number of sets performed on a certain date
-    sets_on_date = []
-    for date in unique_dates:
-        sets_on_date.append(dates.count(date))
+    sets_on_date = [dates.count(date) for date in unique_dates]
     # print(sets_on_date)
     # print(len(sets_on_date))
 
     # Create a list of lists containing the volumes lifted on dates
-    volumes_for_workout = []
-    for sets in sets_on_date:
-        volumes_for_workout.append(volumes[0:sets])
+    volumes_for_workout = [volumes[0:sets] for sets in sets_on_date]
     # print(volumes_for_workout)
     # print(len(volumes_for_workout))
 
     # Create a list containing the total volume of all exercises on certain dates
-    volumes_on_unique_dates = []
-    for volume in volumes_for_workout:
-        volumes_on_unique_dates.append(sum(volume))
+    volumes_on_unique_dates = [sum(volume) for volume in volumes_for_workout]
     # print(volumes_on_unique_dates)
     # print(len(volumes_on_unique_dates))
 
     #TODO: change graph options so that it shows up larger by default
-    
+
     # Create and display a chart with matplotlib graphing volume listed over time
     ax = plt.axes()
     ax.bar(unique_dates, volumes_on_unique_dates)
