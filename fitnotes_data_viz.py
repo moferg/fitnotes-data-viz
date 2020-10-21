@@ -23,7 +23,7 @@ import time
 # Functions
 
 def unique_values(list1):
-    '''Takes a list as input and outputs a list with all duplicates removes''' 
+    '''Takes a list as input and outputs a list with all duplicates removed''' 
     x = np.array(list1) 
     return list(np.unique(x))
 
@@ -60,25 +60,28 @@ with open('FitNotes_Export_2020_10_04.csv') as csv_file:
 
     # Remove duplicates from dates list
     unique_dates = unique_values(dates)
-    # print(unique_dates)
-    # print(len(unique_dates))
+    print(f'Contents of unique_dates variable: {unique_dates}')
+    print(f'Length of unique_dates variable: {len(unique_dates)}')
 
     # Create a list of the number of sets performed on a certain date
     sets_on_date = [dates.count(date) for date in unique_dates]
-    # print(sets_on_date)
-    # print(len(sets_on_date))
+    print(f'Contents of sets_on_dates variable: {sets_on_date}')
+    print(f'Length of sets_on_dates variable: {len(sets_on_date)}')
+
+    # TODO: double check and make sure this is assigning correcting volumes to list
 
     # Create a list of lists containing the volumes lifted on dates
     volumes_for_workout = [volumes[0:sets] for sets in sets_on_date]
-    # print(volumes_for_workout)
-    # print(len(volumes_for_workout))
+    print(f'Contents of volumes_for_workout variable: {volumes_for_workout}')
+    print(f'Length of volumes_for_workout variable: {len(volumes_for_workout)}')
 
     # Create a list containing the total volume of all exercises on certain dates
     volumes_on_unique_dates = [sum(volume) for volume in volumes_for_workout]
-    # print(volumes_on_unique_dates)
-    # print(len(volumes_on_unique_dates))
+    print(f'Contents of volumes_on_unique_dates variable: {volumes_on_unique_dates}')
+    print(f'Length of volumes_on_unique_dates variable: {len(volumes_on_unique_dates)}')
 
-    #TODO: change graph options so that it shows up larger by default
+    # TODO: change graph options so that it shows up larger by default
+    # TODO: add body part targeted of each date to graph
 
     # Create and display a chart with matplotlib graphing volume listed over time
     ax = plt.axes()
