@@ -18,7 +18,8 @@ class TestFitnotesDataViz(unittest.TestCase):
 
     def test_volumes_on_unique_dates(self):
         self.assertEqual(fitnotes_data_viz.volumes_on_unique_dates, 
-        [10470, 11905, 13925, 17905, 14780, 15470, 20020, 14280, 16380, 21010, 15280, 17230, 22395, 16265, 17715, 22840, 16565, 17740])
+        [10470.0, 11905.0, 13925.0, 17905.0, 14780.0, 15470.0, 20020.0, 14280.0, 16380.0, 21010.0, 15280.0, 17230.0, 22395.0, 
+        16265.0, 17715.0, 22840.0, 16565.0, 17740.0])
 
 if __name__ == '__main__':
     unittest.main()
