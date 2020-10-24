@@ -74,9 +74,27 @@ with open('FitNotes_Export_2020_10_04.csv') as csv_file:
     print(f'Contents of sets_on_date variable: {sets_on_date}')
     print(f'Length of sets_on_date variable: {len(sets_on_date)}')
 
-    # TODO: double check and make sure this is assigning correct volumes to list (IT IS NOT)
     # Create a list of lists containing the volumes lifted on dates
-    volumes_for_workout = [volumes[:sets] for sets in sets_on_date]
+    # volumes_for_workout = [volumes[:sets] for sets in sets_on_date]
+    volumes_for_workout = []
+    volumes_for_workout.append(volumes[0:18])          # 18
+    volumes_for_workout.append(volumes[18:45])         # 27
+    volumes_for_workout.append(volumes[45:65])         # 20
+    volumes_for_workout.append(volumes[65:92])         # 27
+    volumes_for_workout.append(volumes[92:120])        # 28
+    volumes_for_workout.append(volumes[120:140])       # 20
+    volumes_for_workout.append(volumes[140:166])       # 26
+    volumes_for_workout.append(volumes[166:193])       # 27
+    volumes_for_workout.append(volumes[193:212])       # 19
+    volumes_for_workout.append(volumes[212:239])       # 27
+    volumes_for_workout.append(volumes[239:267])       # 28
+    volumes_for_workout.append(volumes[267:286])       # 19
+    volumes_for_workout.append(volumes[286:311])       # 25
+    volumes_for_workout.append(volumes[311:339])       # 28
+    volumes_for_workout.append(volumes[339:358])       # 19
+    volumes_for_workout.append(volumes[358:386])       # 28
+    volumes_for_workout.append(volumes[386:416])       # 30
+    volumes_for_workout.append(volumes[416:436])       # 20
     print(f'Contents of volumes_for_workout variable: {volumes_for_workout}')
     print(f'Length of volumes_for_workout variable: {len(volumes_for_workout)}')
 
