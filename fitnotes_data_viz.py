@@ -11,7 +11,7 @@
 # Potential features to include:
 # Create a dict or list and use it in program (DONE)
 # Create and call at least 3 functions
-# Create 3 or more unit tests
+# Create 3 or more unit tests (DONE)
 
 # Imports
 
@@ -59,20 +59,20 @@ with open('FitNotes_Export_2020_10_04.csv') as csv_file:
             volumes.append(float(row[4]) * float(row[3]))    # number of reps per set * number of lbs per rep
             line_count += 1
     # print(f'Processed {line_count} lines.')
-    print(f'Contents of dates variable: {dates}')
-    print(f'Length of dates variable: {len(dates)}')
-    print(f'Contents of volumes variable: {volumes}')
-    print(f'Length of volumes variable: {len(volumes)}')
+    # print(f'Contents of dates variable: {dates}')
+    # print(f'Length of dates variable: {len(dates)}')
+    # print(f'Contents of volumes variable: {volumes}')
+    # print(f'Length of volumes variable: {len(volumes)}')
 
     # Remove duplicates from dates list
     unique_dates = unique_values(dates)
-    print(f'Contents of unique_dates variable: {unique_dates}')
-    print(f'Length of unique_dates variable: {len(unique_dates)}')
+    # print(f'Contents of unique_dates variable: {unique_dates}')
+    # print(f'Length of unique_dates variable: {len(unique_dates)}')
 
     # Create a list of the number of sets performed on a certain date
     sets_on_date = [dates.count(date) for date in unique_dates]
-    print(f'Contents of sets_on_date variable: {sets_on_date}')
-    print(f'Length of sets_on_date variable: {len(sets_on_date)}')
+    # print(f'Contents of sets_on_date variable: {sets_on_date}')
+    # print(f'Length of sets_on_date variable: {len(sets_on_date)}')
 
     # Create a list of lists containing the volumes lifted on dates
     # volumes_for_workout = [volumes[:sets] for sets in sets_on_date]
@@ -95,25 +95,25 @@ with open('FitNotes_Export_2020_10_04.csv') as csv_file:
     volumes_for_workout.append(volumes[358:386])       # 28
     volumes_for_workout.append(volumes[386:416])       # 30
     volumes_for_workout.append(volumes[416:436])       # 20
-    print(f'Contents of volumes_for_workout variable: {volumes_for_workout}')
-    print(f'Length of volumes_for_workout variable: {len(volumes_for_workout)}')
+    # print(f'Contents of volumes_for_workout variable: {volumes_for_workout}')
+    # print(f'Length of volumes_for_workout variable: {len(volumes_for_workout)}')
 
     # Create a list containing the total volume of all exercises on certain dates
     volumes_on_unique_dates = [sum(volume) for volume in volumes_for_workout]
-    print(f'Contents of volumes_on_unique_dates variable: {volumes_on_unique_dates}')
-    print(f'Length of volumes_on_unique_dates variable: {len(volumes_on_unique_dates)}')
+    # print(f'Contents of volumes_on_unique_dates variable: {volumes_on_unique_dates}')
+    # print(f'Length of volumes_on_unique_dates variable: {len(volumes_on_unique_dates)}')
 
     # TODO: change graph options so that it shows up larger by default
     # TODO: add body part targeted of each date to graph
 
     # Create and display a chart with matplotlib graphing volume listed over time
-    # ax = plt.axes()
-    # ax.bar(unique_dates, volumes_on_unique_dates)
-    # ax.scatter(unique_dates, volumes_on_unique_dates, color='r', linewidth=4)
-    # ax.plot(unique_dates, volumes_on_unique_dates, color='r', linewidth=2)
-    # for i in range(0, len(unique_dates)):
-    #     ax.annotate(str(volumes_on_unique_dates[i]) + 'lbs', xy = (i - .35, volumes_on_unique_dates[i]))
-    # ax.set_xlabel('Workout Dates')
-    # ax.set_ylabel('Workout Volumes (lbs)')
-    # ax.set_title('Workout Volumes Over Time')
-    # plt.show()
+    plt.figure(figsize=(22.5, 11))
+    plt.bar(unique_dates, volumes_on_unique_dates)
+    plt.scatter(unique_dates, volumes_on_unique_dates, color='r', linewidth=4)
+    plt.plot(unique_dates, volumes_on_unique_dates, color='r', linewidth=2)
+    for i in range(0, len(unique_dates)):
+        plt.annotate(str(volumes_on_unique_dates[i]) + 'lbs', xy = (i - .35, volumes_on_unique_dates[i]))
+    plt.xlabel('Workout Dates')
+    plt.ylabel('Workout Volumes (lbs)')
+    plt.title('Workout Volumes Over Time')
+    plt.show()
