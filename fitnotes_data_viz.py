@@ -55,7 +55,7 @@ with open('FitNotes_Export_2020_10_04.csv') as csv_file:
             reps.append(int(row[4]))
             muscle_group.append(row[2])
             exercise_name.append(row[1])
-            volumes.append(float(row[4]) * float(row[3]))    # number of reps per set * number of lbs per rep
+            volumes.append(float(row[4]) * float(row[3]))    # number of reps per set * number of lbs per rep = volume per set
             line_count += 1
     # print(f'Processed {line_count} lines.')
     # print(f'Contents of dates variable: {dates}')
@@ -110,7 +110,7 @@ plt.bar(unique_dates, volumes_on_unique_dates)
 # plt.scatter(unique_dates, volumes_on_unique_dates, color='r', linewidth=4)
 # plt.plot(unique_dates, volumes_on_unique_dates, color='r', linewidth=2)
 for i in range(0, len(unique_dates)):
-    plt.annotate(str(volumes_on_unique_dates[i]) + 'lbs', xy = (i - .35, volumes_on_unique_dates[i]))
+    plt.annotate(str(volumes_on_unique_dates[i]) + 'lbs', xy = (i - .45, volumes_on_unique_dates[i]))
 plt.xlabel('Workout Dates')
 plt.ylabel('Workout Volumes (lbs)')
 plt.title('Workout Volumes Over Time')
