@@ -14,6 +14,6 @@ The script runs on the command line. To use the script, clone this GitHub repo t
 
 The following features have been implemented to meet the requirements outlined in the Python Project Requirements document:
 1. Read data from an external CSV file
-2. Created a list and use it in the program
+2. Created a list and used it in the program
 3. Created 3 unit tests for the application
 4. Used matplotlib to visualize data in a graph
