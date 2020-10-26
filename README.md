@@ -8,4 +8,12 @@ This script requires both the numpy and matplotlib libraries. They can be instal
 
 ## Using This Script
 
-The script runs on the command line. To use the script, clone this GitHub repo to your local machine, navigate to the directory where the script is located, and run one of the following commands depending on your operating system: `python fitnotes_data_viz.py` on Windows or `python3 fitnotes_data_viz.py` on Mac on Linux.
+The script runs on the command line. To use the script, clone this GitHub repo to your local machine, navigate to the directory where the script is located, and run one of the following commands depending on your operating system: `python fitnotes_data_viz.py` on Windows or `python3 fitnotes_data_viz.py` on Mac or Linux.
+
+## Features List
+
+The following features have been implemented to meet the requirements outlined in the Python Project Requirements document:
+1. Read data from an external CSV file
+2. Created a list and use it in the program
+3. Created 3 unit tests for the application
+4. Used matplotlib to visualize data in a graph
