@@ -10,6 +10,14 @@ The main libraries used in this script are matplotlib and numpy. If these librar
 
 The script runs on the command line. To use the script, clone this GitHub repo to your local machine, navigate to the directory where the script is located, and run one of the following commands: `python fitnotes_data_viz.py` on Windows or `python3 fitnotes_data_viz.py` on Mac or Linux.
 
+## Potential Errors/Bugs
+
+The following is a list of problems that were run into during testing of this script, and how to resolve them.
+
+### Linux
+
+- If after running `python3 fitnotes_data_viz.py` you recieve the following error, `UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.` it means you need to install tkinter. Run this command in the terminal to install tkinter: `sudo apt-get install python3-tk`
+
 ## Features List
 
 The following features have been implemented to meet the requirements outlined in the Python Project Requirements document:
