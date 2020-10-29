@@ -73,6 +73,11 @@ sets_on_date = [dates.count(date) for date in unique_dates]
 # print(f'Contents of sets_on_date variable: {sets_on_date}')
 # print(f'Length of sets_on_date variable: {len(sets_on_date)}')
 
+# Remove the year from dates in unique_dates list
+unique_dates = [date.lstrip('2020-') for date in unique_dates]
+# print(f'Contents of unique_dates variable: {unique_dates}')
+# print(f'Length of unique_dates variable: {len(unique_dates)}')
+
 # Create a list of lists containing the volumes lifted on dates
 # volumes_for_workout = [volumes[:sets] for sets in sets_on_date]
 volumes_for_workout = []
