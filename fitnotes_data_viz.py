@@ -62,16 +62,30 @@ with open('FitNotes_Export_2020_10_04.csv') as csv_file:
     # print(f'Length of dates variable: {len(dates)}')
     # print(f'Contents of volumes variable: {volumes}')
     # print(f'Length of volumes variable: {len(volumes)}')
+    # print(f'Contents of muscle_group variable: {muscle_group}')
+    # print(f'Length of muscle_group variable: {len(muscle_group)}')
+    # print(f'Contents of exercise_name variable: {exercise_name}')
+    # print(f'Length of exercise_name variable: {len(exercise_name)}')
 
 # Remove duplicates from dates list
 unique_dates = unique_values(dates)
 # print(f'Contents of unique_dates variable: {unique_dates}')
 # print(f'Length of unique_dates variable: {len(unique_dates)}')
 
+# Remove duplicates from muscle group list
+unique_muscle_group = unique_values(muscle_group)
+# print(f'Contents of unique_muscle_group variable: {unique_muscle_group}')
+# print(f'Length of unique_muscle_group variable: {len(unique_muscle_group)}')
+
 # Create a list of the number of sets performed on a certain date
 sets_on_date = [dates.count(date) for date in unique_dates]
 # print(f'Contents of sets_on_date variable: {sets_on_date}')
 # print(f'Length of sets_on_date variable: {len(sets_on_date)}')
+
+# Create a list of the number of times a muscle group was targetted 
+muscle_group_count = [muscle_group.count(muscle) for muscle in unique_muscle_group]
+# print(f'Contents of muscle_group_count variable: {muscle_group_count}')
+# print(f'Length of muscle_group_count variable: {len(muscle_group_count)}')
 
 # Remove the year from dates in unique_dates list
 unique_dates = [date.lstrip('2020-') for date in unique_dates]
@@ -109,7 +123,7 @@ volumes_on_unique_dates = [sum(volume) for volume in volumes_for_workout]
 
 # TODO: add body part targeted of each date to graph
 
-# Create and display a chart with matplotlib graphing volume listed over time
+# Create and display a bar graph with matplotlib graphing volume listed over time
 plt.figure(figsize=(22.5, 11))
 plt.bar(unique_dates, volumes_on_unique_dates)
 # plt.scatter(unique_dates, volumes_on_unique_dates, color='r', linewidth=4)
@@ -119,4 +133,10 @@ for i in range(0, len(unique_dates)):
 plt.xlabel('Workout Dates')
 plt.ylabel('Workout Volumes (lbs)')
 plt.title('Workout Volumes Over Time')
+plt.show()
+
+# Create and display a pie chart graphing percentages of workouts targetting different muscle groups
+plt.figure(figsize=(15, 11))
+plt.pie(muscle_group_count, labels=unique_muscle_group, autopct='%1.1f%%')
+plt.title('Percentages of Muscle Groups Targetted')
 plt.show()
