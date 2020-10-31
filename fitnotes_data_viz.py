@@ -102,6 +102,11 @@ unique_dates = [date.lstrip('2020-') for date in unique_dates]
 # print(f'Contents of unique_dates variable: {unique_dates}')
 # print(f'Length of unique_dates variable: {len(unique_dates)}')
 
+# Remove extraneous notation from exercise names
+unique_exercise_name = [name.replace('(Pulley)', '') for name in unique_exercise_name]
+# print(f'Contents of unique_exercise_name variable: {unique_exercise_name}')
+# print(f'Length of unique_exercise_name variable: {len(unique_exercise_name)}')
+
 # Create a list of lists containing the volumes lifted on dates
 # volumes_for_workout = [volumes[:sets] for sets in sets_on_date]
 volumes_for_workout = []
