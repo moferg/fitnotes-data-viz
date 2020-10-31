@@ -77,6 +77,11 @@ unique_muscle_group = unique_values(muscle_group)
 # print(f'Contents of unique_muscle_group variable: {unique_muscle_group}')
 # print(f'Length of unique_muscle_group variable: {len(unique_muscle_group)}')
 
+# Remove duplicates from exercise name list
+unique_exercise_name = unique_values(exercise_name)
+# print(f'Contents of unique_exercise_name variable: {unique_exercise_name}')
+# print(f'Length of unique_exercise_name variable: {len(unique_exercise_name)}')
+
 # Create a list of the number of sets performed on a certain date
 sets_on_date = [dates.count(date) for date in unique_dates]
 # print(f'Contents of sets_on_date variable: {sets_on_date}')
@@ -86,6 +91,11 @@ sets_on_date = [dates.count(date) for date in unique_dates]
 muscle_group_count = [muscle_group.count(muscle) for muscle in unique_muscle_group]
 # print(f'Contents of muscle_group_count variable: {muscle_group_count}')
 # print(f'Length of muscle_group_count variable: {len(muscle_group_count)}')
+
+# Create a list of the number of times an exercise was performed
+exercise_name_count = [exercise_name.count(exercise) for exercise in unique_exercise_name]
+# print(f'Contents of exercise_name_count variable: {exercise_name_count}')
+# print(f'Length of exercise_name_count variable: {len(exercise_name_count)}')
 
 # Remove the year from dates in unique_dates list
 unique_dates = [date.lstrip('2020-') for date in unique_dates]
@@ -139,4 +149,10 @@ plt.show()
 plt.figure(figsize=(15, 11))
 plt.pie(muscle_group_count, labels=unique_muscle_group, autopct='%1.1f%%')
 plt.title('Percentages of Muscle Groups Targetted')
+plt.show()
+
+# Create and display a pie chart graphing percenteages of exercises performed
+plt.figure(figsize=(15, 11))
+plt.pie(exercise_name_count, labels=unique_exercise_name, autopct='%1.1f%%')
+plt.title('Percentages of Exercises Performed')
 plt.show()
