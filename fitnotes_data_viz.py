@@ -1,7 +1,7 @@
 # Marshall Ferguson - 9/2020
 
 # Features to implement:
-# Infinite main loop for user to choose options from
+# Infinite main loop for user to choose options from (DONE)
 # Buid a conversion tool (lb to kg)
 # Read data from an external CSV file (DONE)
 # Visualize data in a graph (DONE)
@@ -137,11 +137,12 @@ print('and output graphs and visualizations, guiding you to a more data driven a
 time.sleep(2)
 
 while True:
+    print('Please select the graph you would like to see.')
     print('1. Bar graph charting volume over time')
     print('2. Pie chart graphing percentages of workouts targetting different muscle groups')
     print('3. Pie chart graphing percenteages of exercises performed')
     print('"q" to quit')
-    user_choice = input('Please select the graph you would like to see: (Enter a number from the list or "q" to quit)     ')
+    user_choice = input('(Enter a number from the list or "q" to quit)     ')
     user_choice = user_choice.lower()
     if user_choice == '1':
         # Create and display a bar graph with matplotlib graphing volume listed over time
@@ -171,3 +172,4 @@ while True:
         break
     else:
         print('Sorry, that was not a valid option. Please select a number from the list of options of press "q" to quit')
+        time.sleep(1.5)
