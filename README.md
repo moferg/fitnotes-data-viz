@@ -25,3 +25,4 @@ The following features have been implemented to meet the requirements outlined i
 2. Created a list and used it in the program
 3. Created 3 unit tests for the application
 4. Used matplotlib to visualize data in a graph
+5. Implemented a master loop that user can choose options from or choose to exit program
