@@ -26,14 +26,6 @@ def unique_values(list1):
     x = np.array(list1) 
     return list(np.unique(x))
 
-# Create an welcoming menu for the user
-print('Welcome to the FitNotes Data Visualizer!')
-time.sleep(1)
-print('This application will take in a CSV file from the FitNotes workout app,')
-time.sleep(2)
-print('and output graphs and visualizations, guiding you to a more data driven approach to working out.')
-time.sleep(2)
-
 # Variables created before opening CSV file
 dates = []
 reps = []
@@ -136,28 +128,46 @@ volumes_on_unique_dates = [sum(volume) for volume in volumes_for_workout]
 # print(f'Contents of volumes_on_unique_dates variable: {volumes_on_unique_dates}')
 # print(f'Length of volumes_on_unique_dates variable: {len(volumes_on_unique_dates)}')
 
-# TODO: add body part targeted of each date to graph
+# Create an welcoming menu for the user
+print('Welcome to the FitNotes Data Visualizer!')
+time.sleep(1)
+print('This application will take in a CSV file from the FitNotes workout app,')
+time.sleep(2)
+print('and output graphs and visualizations, guiding you to a more data driven approach to working out.')
+time.sleep(2)
 
-# Create and display a bar graph with matplotlib graphing volume listed over time
-plt.figure(figsize=(22.5, 11))
-plt.bar(unique_dates, volumes_on_unique_dates)
-# plt.scatter(unique_dates, volumes_on_unique_dates, color='r', linewidth=4)
-# plt.plot(unique_dates, volumes_on_unique_dates, color='r', linewidth=2)
-for i in range(0, len(unique_dates)):
-    plt.annotate(str(volumes_on_unique_dates[i]) + 'lbs', xy = (i - .45, volumes_on_unique_dates[i]))
-plt.xlabel('Workout Dates')
-plt.ylabel('Workout Volumes (lbs)')
-plt.title('Workout Volumes Over Time')
-plt.show()
-
-# Create and display a pie chart graphing percentages of workouts targetting different muscle groups
-plt.figure(figsize=(15, 11))
-plt.pie(muscle_group_count, labels=unique_muscle_group, autopct='%1.1f%%')
-plt.title('Percentages of Muscle Groups Targetted')
-plt.show()
-
-# Create and display a pie chart graphing percenteages of exercises performed
-plt.figure(figsize=(15, 11))
-plt.pie(exercise_name_count, labels=unique_exercise_name, autopct='%1.1f%%')
-plt.title('Percentages of Exercises Performed')
-plt.show()
+while True:
+    print('1. Bar graph charting volume over time')
+    print('2. Pie chart graphing percentages of workouts targetting different muscle groups')
+    print('3. Pie chart graphing percenteages of exercises performed')
+    print('"q" to quit')
+    user_choice = input('Please select the graph you would like to see: (Enter a number from the list or "q" to quit)     ')
+    user_choice = user_choice.lower()
+    if user_choice == '1':
+        # Create and display a bar graph with matplotlib graphing volume listed over time
+        plt.figure(figsize=(22.5, 11))
+        plt.bar(unique_dates, volumes_on_unique_dates)
+        # plt.scatter(unique_dates, volumes_on_unique_dates, color='r', linewidth=4)
+        # plt.plot(unique_dates, volumes_on_unique_dates, color='r', linewidth=2)
+        for i in range(0, len(unique_dates)):
+            plt.annotate(str(volumes_on_unique_dates[i]) + 'lbs', xy = (i - .45, volumes_on_unique_dates[i]))
+        plt.xlabel('Workout Dates')
+        plt.ylabel('Workout Volumes (lbs)')
+        plt.title('Workout Volumes Over Time')
+        plt.show()
+    elif user_choice == '2':
+        # Create and display a pie chart graphing percentages of workouts targetting different muscle groups
+        plt.figure(figsize=(15, 11))
+        plt.pie(muscle_group_count, labels=unique_muscle_group, autopct='%1.1f%%')
+        plt.title('Percentages of Muscle Groups Targetted')
+        plt.show()
+    elif user_choice == '3':
+        # Create and display a pie chart graphing percenteages of exercises performed
+        plt.figure(figsize=(15, 11))
+        plt.pie(exercise_name_count, labels=unique_exercise_name, autopct='%1.1f%%')
+        plt.title('Percentages of Exercises Performed')
+        plt.show()
+    elif user_choice == 'q':
+        break
+    else:
+        print('Sorry, that was not a valid option. Please select a number from the list of options of press "q" to quit')
