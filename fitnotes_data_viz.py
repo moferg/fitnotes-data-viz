@@ -138,9 +138,10 @@ time.sleep(2)
 
 while True:
     print('Please select the graph you would like to see.')
-    print('1. Bar graph charting volume over time')
-    print('2. Pie chart graphing percentages of workouts targetting different muscle groups')
-    print('3. Pie chart graphing percenteages of exercises performed')
+    print('1. Bar graph charting volume over time in lbs')
+    print('2. Bar graph charting volume over time in kgs')
+    print('3. Pie chart graphing percentages of workouts targetting different muscle groups')
+    print('4. Pie chart graphing percenteages of exercises performed')
     print('"q" to quit')
     user_choice = input('(Enter a number from the list or "q" to quit)     ')
     user_choice = user_choice.lower()
@@ -148,8 +149,6 @@ while True:
         # Create and display a bar graph with matplotlib graphing volume listed over time
         plt.figure(figsize=(22.5, 11))
         plt.bar(unique_dates, volumes_on_unique_dates)
-        # plt.scatter(unique_dates, volumes_on_unique_dates, color='r', linewidth=4)
-        # plt.plot(unique_dates, volumes_on_unique_dates, color='r', linewidth=2)
         for i in range(0, len(unique_dates)):
             plt.annotate(str(volumes_on_unique_dates[i]) + 'lbs', xy = (i - .45, volumes_on_unique_dates[i]))
         plt.xlabel('Workout Dates')
@@ -157,12 +156,27 @@ while True:
         plt.title('Workout Volumes Over Time')
         plt.show()
     elif user_choice == '2':
+        # Convert volumes from lbs to kgs
+        volumes_on_unique_dates_kg = []
+        for volume in volumes_on_unique_dates:
+            volume = volume * 0.454
+            volumes_on_unique_dates_kg.append(volume)
+        # Create and display a bar graph with matplotlib graphing volume listed over time
+        plt.figure(figsize=(22.5, 11))
+        plt.bar(unique_dates, volumes_on_unique_dates_kg)
+        for i in range(0, len(unique_dates)):
+            plt.annotate(str("%.2f" % volumes_on_unique_dates_kg[i]) + 'kgs', xy = (i - .45, volumes_on_unique_dates_kg[i]))
+        plt.xlabel('Workout Dates')
+        plt.ylabel('Workout Volumes (kgs)')
+        plt.title('Workout Volumes Over Time')
+        plt.show()
+    elif user_choice == '3':
         # Create and display a pie chart graphing percentages of workouts targetting different muscle groups
         plt.figure(figsize=(15, 11))
         plt.pie(muscle_group_count, labels=unique_muscle_group, autopct='%1.1f%%')
         plt.title('Percentages of Muscle Groups Targetted')
         plt.show()
-    elif user_choice == '3':
+    elif user_choice == '4':
         # Create and display a pie chart graphing percenteages of exercises performed
         plt.figure(figsize=(15, 11))
         plt.pie(exercise_name_count, labels=unique_exercise_name, autopct='%1.1f%%')
