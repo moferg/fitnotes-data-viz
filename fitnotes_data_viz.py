@@ -28,7 +28,6 @@ def unique_values(list1):
 
 # Variables created before opening CSV file
 dates = []
-reps = []
 muscle_group = []
 exercise_name = []
 volumes = []
@@ -44,7 +43,6 @@ with open('FitNotes_Export_2020_10_04.csv') as csv_file:
         else:
             # print(f'\tOn {row[0]}, you performed {row[1]} for {row[4]} reps at {row[3]} lbs.')
             dates.append(row[0])
-            reps.append(int(row[4]))
             muscle_group.append(row[2])
             exercise_name.append(row[1])
             volumes.append(float(row[4]) * float(row[3]))    # number of reps per set * number of lbs per rep = volume per set
