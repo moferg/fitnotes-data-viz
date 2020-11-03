@@ -14,9 +14,6 @@ class TestFitnotesDataViz(unittest.TestCase):
         self.assertEqual(fitnotes_data_viz.sets_on_date, [18, 27, 20, 27, 28, 20, 26, 27, 19, 27, 28, 19, 25, 28, 19, 28, 30, 20])
         self.assertEqual(len(fitnotes_data_viz.sets_on_date), 18)
 
-    # def test_volumes_for_workout(self):
-    #     self.assertEqual(fitnotes_data_viz.volumes_for_workout, [])
-
     def test_volumes_on_unique_dates(self):
         self.assertEqual(fitnotes_data_viz.volumes_on_unique_dates, 
         [10470.0, 11905.0, 13925.0, 17905.0, 14780.0, 15470.0, 20020.0, 14280.0, 16380.0, 21010.0, 15280.0, 17230.0, 22395.0, 
