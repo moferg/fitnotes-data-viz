@@ -136,11 +136,11 @@ volumes_on_unique_dates = [sum(volume) for volume in volumes_for_workout]
 
 # Create an welcoming menu for the user
 print('Welcome to the FitNotes Data Visualizer!')
-time.sleep(1)
+time.sleep(2)
 print('This application will take in a CSV file from the FitNotes workout app,')
-time.sleep(2)
+time.sleep(3)
 print('and output graphs and visualizations, guiding you to a more data driven approach to working out.')
-time.sleep(2)
+time.sleep(4)
 clear_screen()
 
 while True:
