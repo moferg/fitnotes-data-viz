@@ -158,7 +158,7 @@ while True:
         plt.figure(figsize=(22.5, 11))
         plt.bar(unique_dates, volumes_on_unique_dates)
         for i in range(0, len(unique_dates)):
-            plt.annotate(str(volumes_on_unique_dates[i]), xy = (i - .45, volumes_on_unique_dates[i]))
+            plt.annotate(str(int(volumes_on_unique_dates[i])), xy = (i - .45, volumes_on_unique_dates[i]))
         plt.xlabel('Workout Dates')
         plt.ylabel('Workout Volumes (lbs)')
         plt.title('Workout Volumes (in lbs) Over Time')
