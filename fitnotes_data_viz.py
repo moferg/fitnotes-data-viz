@@ -158,10 +158,10 @@ while True:
         plt.figure(figsize=(22.5, 11))
         plt.bar(unique_dates, volumes_on_unique_dates)
         for i in range(0, len(unique_dates)):
-            plt.annotate(str(volumes_on_unique_dates[i]) + 'lbs', xy = (i - .45, volumes_on_unique_dates[i]))
+            plt.annotate(str(volumes_on_unique_dates[i]), xy = (i - .45, volumes_on_unique_dates[i]))
         plt.xlabel('Workout Dates')
         plt.ylabel('Workout Volumes (lbs)')
-        plt.title('Workout Volumes Over Time')
+        plt.title('Workout Volumes (in lbs) Over Time')
         plt.show()
         clear_screen()
     elif user_choice == '2':
@@ -174,10 +174,10 @@ while True:
         plt.figure(figsize=(22.5, 11))
         plt.bar(unique_dates, volumes_on_unique_dates_kg)
         for i in range(0, len(unique_dates)):
-            plt.annotate(str("%.2f" % volumes_on_unique_dates_kg[i]) + 'kgs', xy = (i - .45, volumes_on_unique_dates_kg[i]))
+            plt.annotate(str("%.2f" % volumes_on_unique_dates_kg[i]), xy = (i - .45, volumes_on_unique_dates_kg[i]))
         plt.xlabel('Workout Dates')
         plt.ylabel('Workout Volumes (kgs)')
-        plt.title('Workout Volumes Over Time')
+        plt.title('Workout Volumes (in kgs) Over Time')
         plt.show()
         clear_screen()
     elif user_choice == '3':
