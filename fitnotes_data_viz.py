@@ -135,6 +135,7 @@ volumes_on_unique_dates = [sum(volume) for volume in volumes_for_workout]
 # print(f'Length of volumes_on_unique_dates variable: {len(volumes_on_unique_dates)}')
 
 # Create an welcoming menu for the user
+clear_screen()
 print('Welcome to the FitNotes Data Visualizer!')
 time.sleep(2)
 print('This application will take in a CSV file from the FitNotes workout app,')
