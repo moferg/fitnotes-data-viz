@@ -18,6 +18,10 @@ The following is a list of problems that were run into during testing of this sc
 
 - If after running `python3 fitnotes_data_viz.py` you recieve the following error, `UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.` it means you need to install tkinter. Run this command in the terminal to install tkinter: `sudo apt-get install python3-tk`
 
+### Monitor/Display Size
+
+- The graph outputs were designed for a laptop display. If you are viewing the graphs, specifically either of the bar graphs, on a monitor larger than 17 inches then the annotations may appear a bit shifted to the left. This is due to the way matplotlib calculates the xy coordinates of the annotations. The script will work just fine on larger monitors/displays, but the appearance may be a little off.
+
 ## Features List
 
 The following features have been implemented to meet the requirements outlined in the Python Project Requirements document:
