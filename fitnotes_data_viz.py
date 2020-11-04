@@ -141,6 +141,7 @@ print('This application will take in a CSV file from the FitNotes workout app,')
 time.sleep(2)
 print('and output graphs and visualizations, guiding you to a more data driven approach to working out.')
 time.sleep(2)
+clear_screen()
 
 while True:
     print('Please select the graph you would like to see.')
@@ -161,6 +162,7 @@ while True:
         plt.ylabel('Workout Volumes (lbs)')
         plt.title('Workout Volumes Over Time')
         plt.show()
+        clear_screen()
     elif user_choice == '2':
         # Convert volumes from lbs to kgs
         volumes_on_unique_dates_kg = []
@@ -176,20 +178,25 @@ while True:
         plt.ylabel('Workout Volumes (kgs)')
         plt.title('Workout Volumes Over Time')
         plt.show()
+        clear_screen()
     elif user_choice == '3':
         # Create and display a pie chart graphing percentages of workouts targetting different muscle groups
         plt.figure(figsize=(15, 11))
         plt.pie(muscle_group_count, labels=unique_muscle_group, autopct='%1.1f%%')
         plt.title('Percentages of Muscle Groups Targetted')
         plt.show()
+        clear_screen()
     elif user_choice == '4':
         # Create and display a pie chart graphing percenteages of exercises performed
         plt.figure(figsize=(15, 11))
         plt.pie(exercise_name_count, labels=unique_exercise_name, autopct='%1.1f%%')
         plt.title('Percentages of Exercises Performed')
         plt.show()
+        clear_screen()
     elif user_choice == 'q':
+        clear_screen()
         break
     else:
         print('Sorry, that was not a valid option. Please select a number from the list of options of press "q" to quit')
         time.sleep(1.5)
+        clear_screen()
