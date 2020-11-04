@@ -18,6 +18,7 @@ import csv
 import matplotlib.pyplot as plt
 import numpy as np
 import time
+from os import system, name 
 
 # Functions
 
@@ -25,6 +26,13 @@ def unique_values(list1):
     '''Takes a list as input and outputs a list with all duplicates removed''' 
     x = np.array(list1) 
     return list(np.unique(x))
+
+def clear_screen():
+    '''Clears out the terminal/console to a blank screen'''
+    if name == 'nt':
+        system('cls')
+    if name == 'posix':
+        system('clear')
 
 # Variables created before opening CSV file
 dates = []
