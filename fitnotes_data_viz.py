@@ -166,6 +166,7 @@ while True:
         plt.xlabel('Workout Dates')
         plt.ylabel('Workout Volumes (lbs)')
         plt.title('Workout Volumes (in lbs) Over Time')
+        plt.legend(['Trend Line', 'Volume (in lbs)'])
         plt.show()
         clear_screen()
     elif user_choice == '2':
@@ -186,6 +187,7 @@ while True:
         plt.xlabel('Workout Dates')
         plt.ylabel('Workout Volumes (kgs)')
         plt.title('Workout Volumes (in kgs) Over Time')
+        plt.legend(['Trend Line', 'Volume (in kgs)'])
         plt.show()
         clear_screen()
     elif user_choice == '3':
