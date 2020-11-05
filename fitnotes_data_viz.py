@@ -157,6 +157,10 @@ while True:
         # Create and display a bar graph with matplotlib graphing volume listed over time
         plt.figure(figsize=(22.5, 11))
         plt.bar(unique_dates, volumes_on_unique_dates)
+        x = np.arange(len(volumes_on_unique_dates))
+        z = np.polyfit(x, volumes_on_unique_dates, 1)
+        p = np.poly1d(z)
+        plt.plot(x, p(x), "r--")
         for i in range(0, len(unique_dates)):
             plt.annotate(str(int(volumes_on_unique_dates[i])), xy = (i - .45, volumes_on_unique_dates[i]))
         plt.xlabel('Workout Dates')
@@ -173,6 +177,10 @@ while True:
         # Create and display a bar graph with matplotlib graphing volume listed over time
         plt.figure(figsize=(22.5, 11))
         plt.bar(unique_dates, volumes_on_unique_dates_kg)
+        x = np.arange(len(volumes_on_unique_dates_kg))
+        z = np.polyfit(x, volumes_on_unique_dates_kg, 1)
+        p = np.poly1d(z)
+        plt.plot(x, p(x), "r--")
         for i in range(0, len(unique_dates)):
             plt.annotate(str("%.2f" % volumes_on_unique_dates_kg[i]), xy = (i - .45, volumes_on_unique_dates_kg[i]))
         plt.xlabel('Workout Dates')
