@@ -48,68 +48,40 @@ with open('FitNotes_Export_2020_10_04.csv') as csv_file:
     line_count = 0
     for row in csv_reader:
         if line_count == 0:
-            # print(f'Column names: {", ".join(row)}')
             line_count += 1
         else:
-            # print(f'\tOn {row[0]}, you performed {row[1]} for {row[4]} reps at {row[3]} lbs.')
             dates.append(row[0])
             muscle_group.append(row[2])
             exercise_name.append(row[1])
             # number of reps per set * number of lbs per rep = volume per set
             volumes.append(float(row[4]) * float(row[3]))
             line_count += 1
-    # print(f'Processed {line_count} lines.')
-    # print(f'Contents of dates variable: {dates}')
-    # print(f'Length of dates variable: {len(dates)}')
-    # print(f'Contents of volumes variable: {volumes}')
-    # print(f'Length of volumes variable: {len(volumes)}')
-    # print(f'Contents of muscle_group variable: {muscle_group}')
-    # print(f'Length of muscle_group variable: {len(muscle_group)}')
-    # print(f'Contents of exercise_name variable: {exercise_name}')
-    # print(f'Length of exercise_name variable: {len(exercise_name)}')
 
 # Remove duplicates from dates list
 unique_dates = unique_values(dates)
-# print(f'Contents of unique_dates variable: {unique_dates}')
-# print(f'Length of unique_dates variable: {len(unique_dates)}')
 
 # Remove duplicates from muscle group list
 unique_muscle_group = unique_values(muscle_group)
-# print(f'Contents of unique_muscle_group variable: {unique_muscle_group}')
-# print(f'Length of unique_muscle_group variable: {len(unique_muscle_group)}')
 
 # Remove duplicates from exercise name list
 unique_exercise_name = unique_values(exercise_name)
-# print(f'Contents of unique_exercise_name variable: {unique_exercise_name}')
-# print(f'Length of unique_exercise_name variable: {len(unique_exercise_name)}')
 
 # Create a list of the number of sets performed on a certain date
 sets_on_date = [dates.count(date) for date in unique_dates]
-# print(f'Contents of sets_on_date variable: {sets_on_date}')
-# print(f'Length of sets_on_date variable: {len(sets_on_date)}')
 
 # Create a list of the number of times a muscle group was targetted
 muscle_group_count = [muscle_group.count(muscle) for muscle in unique_muscle_group]
-# print(f'Contents of muscle_group_count variable: {muscle_group_count}')
-# print(f'Length of muscle_group_count variable: {len(muscle_group_count)}')
 
 # Create a list of the number of times an exercise was performed
 exercise_name_count = [exercise_name.count(exercise) for exercise in unique_exercise_name]
-# print(f'Contents of exercise_name_count variable: {exercise_name_count}')
-# print(f'Length of exercise_name_count variable: {len(exercise_name_count)}')
 
 # Remove the year from dates in unique_dates list
 unique_dates = [date.lstrip('2020-') for date in unique_dates]
-# print(f'Contents of unique_dates variable: {unique_dates}')
-# print(f'Length of unique_dates variable: {len(unique_dates)}')
 
 # Remove extraneous notation from exercise names
 unique_exercise_name = [name.replace('(Pulley)', '') for name in unique_exercise_name]
-# print(f'Contents of unique_exercise_name variable: {unique_exercise_name}')
-# print(f'Length of unique_exercise_name variable: {len(unique_exercise_name)}')
 
 # Create a list of lists containing the volumes lifted on dates
-# volumes_for_workout = [volumes[:sets] for sets in sets_on_date]
 volumes_for_workout = []
 volumes_for_workout.append(volumes[0:18])          # 18
 volumes_for_workout.append(volumes[18:45])         # 27
@@ -129,13 +101,9 @@ volumes_for_workout.append(volumes[339:358])       # 19
 volumes_for_workout.append(volumes[358:386])       # 28
 volumes_for_workout.append(volumes[386:416])       # 30
 volumes_for_workout.append(volumes[416:436])       # 20
-# print(f'Contents of volumes_for_workout variable: {volumes_for_workout}')
-# print(f'Length of volumes_for_workout variable: {len(volumes_for_workout)}')
 
 # Create a list containing the total volume of all exercises on certain dates
 volumes_on_unique_dates = [sum(volume) for volume in volumes_for_workout]
-# print(f'Contents of volumes_on_unique_dates variable: {volumes_on_unique_dates}')
-# print(f'Length of volumes_on_unique_dates variable: {len(volumes_on_unique_dates)}')
 
 if __name__ == "__main__":
 
