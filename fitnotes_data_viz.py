@@ -5,7 +5,7 @@
 # Buid a conversion tool (lb to kg)
 # Read data from an external CSV file (DONE)
 # Visualize data in a graph (DONE)
-# Use matplotlib (DONE) 
+# Use matplotlib (DONE)
 
 # Potential features to include:
 # Create a dict or list and use it in program (DONE)
@@ -18,14 +18,16 @@ import csv
 import matplotlib.pyplot as plt
 import numpy as np
 import time
-from os import system, name 
+from os import system, name
 
 # Functions
 
+
 def unique_values(list1):
-    '''Takes a list as input and outputs a list with all duplicates removed''' 
-    x = np.array(list1) 
+    '''Takes a list as input and outputs a list with all duplicates removed'''
+    x = np.array(list1)
     return list(np.unique(x))
+
 
 def clear_screen():
     '''Clears out the terminal/console to a blank screen'''
@@ -53,7 +55,8 @@ with open('FitNotes_Export_2020_10_04.csv') as csv_file:
             dates.append(row[0])
             muscle_group.append(row[2])
             exercise_name.append(row[1])
-            volumes.append(float(row[4]) * float(row[3]))    # number of reps per set * number of lbs per rep = volume per set
+            # number of reps per set * number of lbs per rep = volume per set
+            volumes.append(float(row[4]) * float(row[3]))
             line_count += 1
     # print(f'Processed {line_count} lines.')
     # print(f'Contents of dates variable: {dates}')
@@ -85,7 +88,7 @@ sets_on_date = [dates.count(date) for date in unique_dates]
 # print(f'Contents of sets_on_date variable: {sets_on_date}')
 # print(f'Length of sets_on_date variable: {len(sets_on_date)}')
 
-# Create a list of the number of times a muscle group was targetted 
+# Create a list of the number of times a muscle group was targetted
 muscle_group_count = [muscle_group.count(muscle) for muscle in unique_muscle_group]
 # print(f'Contents of muscle_group_count variable: {muscle_group_count}')
 # print(f'Length of muscle_group_count variable: {len(muscle_group_count)}')
@@ -135,7 +138,7 @@ volumes_on_unique_dates = [sum(volume) for volume in volumes_for_workout]
 # print(f'Length of volumes_on_unique_dates variable: {len(volumes_on_unique_dates)}')
 
 if __name__ == "__main__":
-    
+
     # Create an welcoming menu for the user
     clear_screen()
     print('Welcome to the FitNotes Data Visualizer!')
@@ -164,7 +167,7 @@ if __name__ == "__main__":
             p = np.poly1d(z)
             plt.plot(x, p(x), "r--")
             for i in range(0, len(unique_dates)):
-                plt.annotate(str(int(volumes_on_unique_dates[i])), xy = (i - .45, volumes_on_unique_dates[i]))
+                plt.annotate(str(int(volumes_on_unique_dates[i])), xy=(i - .45, volumes_on_unique_dates[i]))
             plt.xlabel('Workout Dates')
             plt.ylabel('Workout Volumes (lbs)')
             plt.title('Workout Volumes (in lbs) Over Time')
@@ -185,7 +188,7 @@ if __name__ == "__main__":
             p = np.poly1d(z)
             plt.plot(x, p(x), "r--")
             for i in range(0, len(unique_dates)):
-                plt.annotate(str("%.2f" % volumes_on_unique_dates_kg[i]), xy = (i - .45, volumes_on_unique_dates_kg[i]))
+                plt.annotate(str("%.2f" % volumes_on_unique_dates_kg[i]), xy=(i - .45, volumes_on_unique_dates_kg[i]))
             plt.xlabel('Workout Dates')
             plt.ylabel('Workout Volumes (kgs)')
             plt.title('Workout Volumes (in kgs) Over Time')
