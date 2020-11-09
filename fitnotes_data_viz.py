@@ -139,7 +139,7 @@ if __name__ == "__main__":
             plt.xlabel('Workout Dates')
             plt.ylabel('Workout Volumes (lbs)')
             plt.title('Workout Volumes (in lbs) Over Time')
-            plt.legend(['Trend Line', 'Volume (in lbs)'])
+            plt.legend(['Trend Line', 'Volume (in lbs)'], loc="upper left")
             plt.show()
             clear_screen()
         elif user_choice == '2':
@@ -160,7 +160,7 @@ if __name__ == "__main__":
             plt.xlabel('Workout Dates')
             plt.ylabel('Workout Volumes (kgs)')
             plt.title('Workout Volumes (in kgs) Over Time')
-            plt.legend(['Trend Line', 'Volume (in kgs)'])
+            plt.legend(['Trend Line', 'Volume (in kgs)'], loc="upper left")
             plt.show()
             clear_screen()
         elif user_choice == '3':
