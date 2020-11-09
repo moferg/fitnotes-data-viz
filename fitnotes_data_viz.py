@@ -173,7 +173,8 @@ if __name__ == "__main__":
         elif user_choice == '4':
             # Create and display a pie chart graphing percenteages of exercises performed
             plt.figure(figsize=(15, 11))
-            plt.pie(exercise_name_count, labels=unique_exercise_name, autopct='%1.1f%%')
+            plt.pie(exercise_name_count, labels=unique_exercise_name, autopct='%1.1f%%', 
+                    colors=('tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple', 'tab:cyan'))
             plt.title('Percentages of Exercises Performed')
             plt.show()
             clear_screen()
