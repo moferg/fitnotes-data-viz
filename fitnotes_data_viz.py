@@ -123,7 +123,6 @@ if __name__ == "__main__":
         print('2. Bar graph charting volume over time in kgs')
         print('3. Pie chart graphing percentages of workouts targetting different muscle groups')
         print('4. Pie chart graphing percenteages of exercises performed')
-        print('"q" to quit')
         user_choice = input('(Enter a number from the list or "q" to quit)     ')
         user_choice = user_choice.lower()
         if user_choice == '1':
