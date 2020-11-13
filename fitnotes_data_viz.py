@@ -1,17 +1,5 @@
 # Marshall Ferguson - 9/2020
 
-# Features to implement:
-# Infinite main loop for user to choose options from (DONE)
-# Buid a conversion tool (lb to kg)
-# Read data from an external CSV file (DONE)
-# Visualize data in a graph (DONE)
-# Use matplotlib (DONE)
-
-# Potential features to include:
-# Create a dict or list and use it in program (DONE)
-# Create and call at least 3 functions
-# Create 3 or more unit tests (DONE)
-
 # Imports
 
 import csv
